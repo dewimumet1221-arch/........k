@@ -801,10 +801,7 @@ end
 -- ==========================================
 local C = {
     Aim_Camera = false, Fov = false, FovSize = 130, VisCheck = false, AliveCheck = true, AimBone = "Head",
-    PunchAura = false, KillAura = false, AuraDist = 10,
-    Esp = false, Box = false, Name = false, Health = false, Dist = false, Tracer = false, Skeleton = false,
-    InfAmmo = false, AntiJam = false, FullAuto = false, Recoil = 1, Spread = 0,
-    Noclip = false, Godmode = false, Fly = false, FlySpeed = 50,
+    Esp = false, Box = false, Name = false, Health = false, Dist = false, Tracer = false, Skeleton =
     
     -- New Cars State
     CarFly = false, CarFlySpeed = 50, InfFuel = false, InfCarHealth = false, CarMods = false
@@ -1303,18 +1300,6 @@ AimSec:Slider("FOV", 10, 500, 130, function(Value) C.FovSize = Value end)
 AimSec:Slider("First Person Sensitivity", 0, 1, 0, function(Value) end)
 AimSec:Slider("Third Person Sensitivity", 1, 10, 1, function(Value) end)
 
-local AuraSec = CombatTab:Section("Aura")
-AuraSec:Toggle("Punch Aura", false, function(Value) C.PunchAura = Value end)
-AuraSec:Toggle("Kill Aura", false, function(Value) C.KillAura = Value end)
-AuraSec:Slider("Kill Aura Distance", 10, 100, 10, function(Value) C.AuraDist = Value end)
-
-local GunSec = CombatTab:Section("Gun Features")
-GunSec:Toggle("Infinite Ammo", false, function(Value) C.InfAmmo = Value end)
-GunSec:Toggle("Anti Jam", false, function(Value) C.AntiJam = Value end)
-GunSec:Toggle("Full Automatic", false, function(Value) C.FullAuto = Value end)
-GunSec:Slider("Recoil", 0, 10, 1, function(Value) C.Recoil = Value end)
-GunSec:Slider("Spread", 0, 10, 0, function(Value) C.Spread = Value end)
-
 local VisualsTab = Window:Tab("Visuals")
 local EspSec = VisualsTab:Section("ESP Settings")
 
@@ -1737,7 +1722,7 @@ RewardSec:Toggle("Auto Claim Playtime Reward", false, function(Value)
                 end)
                 task.wait(10)
             end
-        end)
+        end) 
     end
 end)
 
@@ -1753,8 +1738,6 @@ local SysSec = SettingTab:Section("System")
 SysSec:Button("Unload UI", function()
     infStamina = false
     C.Aim_Camera = false
-    C.PunchAura = false
-    C.KillAura = false
     C.Esp = false
     C.Noclip = false
     C.Godmode = false
